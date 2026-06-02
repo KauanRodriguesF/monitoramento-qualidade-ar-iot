@@ -1,1 +1,43 @@
-// código em breve
+[
+    {
+        "id": "0a93b2251ebfa5f5",
+        "type": "influxdb out",
+        "z": "c427fd0f9fc0d18c",
+        "influxdb": "b014335f5851386b",
+        "name": "InfluxDB Clima",
+        "measurement": "clima",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "Mackenzie",
+        "bucket": "qualidade_ar",
+        "x": 840,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "b014335f5851386b",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": 8086,
+        "protocol": "http",
+        "database": "database",
+        "name": "InfluxDB",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "https://us-east-1-1.aws.cloud2.influxdata.com",
+        "timeout": "20",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "f1cfc6032751be04",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-influxdb": "0.7.0"
+        }
+    }
+]
