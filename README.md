@@ -80,7 +80,8 @@ Acesse: http://localhost:1880
 3. Cole o código do sketch disponível em `wokwi/esp32_sensor1/sketch.ino`
 4. Repita para o Sensor 2 com o código em `wokwi/esp32_sensor2/sketch.ino`
 
-> 📸 <img width="1919" height="941" alt="image" src="https://github.com/user-attachments/assets/b974f1b0-d7ec-418c-9b80-ffe077a5e639" />
+> 📸 <img width="1919" height="948" alt="image" src="https://github.com/user-attachments/assets/f3a22e43-4954-407b-8761-fdfab041b673" />
+
 
 
 ---
@@ -205,7 +206,8 @@ A tabela abaixo apresenta os endereços FQDN e IP de cada componente do sistema:
 
 
 ### Wokwi — Sensores simulados
-> 📸 <img width="1919" height="943" alt="image" src="https://github.com/user-attachments/assets/3e4a4622-42ee-419c-9e50-92060f06eb76" />
+> 📸 <img width="1919" height="948" alt="image" src="https://github.com/user-attachments/assets/49a08981-7641-4cab-afb1-0791b1e3e8ef" />
+
 
 
 ### InfluxDB — Dados gravados
