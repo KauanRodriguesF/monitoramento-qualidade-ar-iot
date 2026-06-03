@@ -131,6 +131,18 @@ Acesse: http://localhost:1880
   "aqi": 85
 }
 ```
+## 🌐 Topologia de Rede
+
+A tabela abaixo apresenta os endereços FQDN e IP de cada componente do sistema:
+
+| Componente | FQDN | IP |
+|---|---|---|
+| Broker MQTT | broker.hivemq.com | 35.156.98.178 |
+| Node-RED | localhost | 127.0.0.1 |
+| InfluxDB Cloud | us-east-1-1.aws.cloud2.influxdata.com | 34.196.233.7 |
+| Grafana Cloud | sincereorchid2585.grafana.net | 104.18.12.97 |
+| OpenWeatherMap API | api.openweathermap.org | 169.197.141.2 |
+
 
 ---
 
