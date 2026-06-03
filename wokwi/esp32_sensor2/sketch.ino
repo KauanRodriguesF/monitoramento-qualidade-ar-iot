@@ -12,6 +12,7 @@ const char* topic = "qualidade-ar/sensor2";
 #define DHT_PIN 4
 #define DHT_TYPE DHT22
 #define MQ135_PIN 34
+#define LED_PIN 2
 
 DHT dht(DHT_PIN, DHT_TYPE);
 WiFiClient espClient;
@@ -20,6 +21,8 @@ PubSubClient client(espClient);
 void setup() {
   Serial.begin(115200);
   dht.begin();
+  pinMode(LED_PIN, OUTPUT);
+  digitalWrite(LED_PIN, LOW);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
@@ -48,6 +51,14 @@ void loop() {
   float umidade = dht.readHumidity();
   int rawAqi = analogRead(MQ135_PIN);
   int aqi = map(rawAqi, 0, 4095, 0, 150);
+
+  // Acende LED se qualidade do ar for ruim
+  if (aqi > 100) {
+    digitalWrite(LED_PIN, HIGH);
+    Serial.println("ALERTA: Qualidade do ar RUIM - LED aceso!");
+  } else {
+    digitalWrite(LED_PIN, LOW);
+  }
 
   StaticJsonDocument<200> doc;
   doc["sensor"] = "sensor2";
