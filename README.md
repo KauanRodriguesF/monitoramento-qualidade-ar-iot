@@ -1,7 +1,7 @@
 # 🌬️ Sistema de Monitoramento da Qualidade do Ar — IoT
 
 **Universidade Presbiteriana Mackenzie — Faculdade de Computação e Informática**  
-Luana Fernandes, Marcelo Takao, Kauan Rodrigues, Wallace Santana
+Luana Fernandes, Marcelo Takao, Kauan Rodrigues
 
 ---
 
@@ -21,7 +21,6 @@ Sistema baseado em Internet das Coisas (IoT) para monitoramento da qualidade do 
                                           [OpenWeatherMap API]
 ```
 
-> 📸 **[INSERIR AQUI: print da arquitetura visual ou diagrama do projeto]**
 
 ---
 
@@ -81,7 +80,8 @@ Acesse: http://localhost:1880
 3. Cole o código do sketch disponível em `wokwi/esp32_sensor1/sketch.ino`
 4. Repita para o Sensor 2 com o código em `wokwi/esp32_sensor2/sketch.ino`
 
-> 📸 **[INSERIR AQUI: print do circuito no Wokwi com os componentes conectados]**
+> 📸 <img width="1919" height="941" alt="image" src="https://github.com/user-attachments/assets/b974f1b0-d7ec-418c-9b80-ffe077a5e639" />
+
 
 ---
 
@@ -97,7 +97,8 @@ Acesse: http://localhost:1880
    - **API Key da OpenWeatherMap** no node `HTTP Request`
 7. Clique em **Implementar**
 
-> 📸 **[INSERIR AQUI: print do fluxo completo no Node-RED]**
+> 📸 <img width="1919" height="859" alt="image" src="https://github.com/user-attachments/assets/83fe46f8-9979-4561-8d4a-28f5347fe2f3" />
+
 
 ---
 
@@ -109,8 +110,6 @@ Acesse: http://localhost:1880
 4. Selecione o arquivo `grafana/dashboard.json`
 5. Em **InfluxDB**, selecione o seu Data Source
 6. Clique em **Import**
-
-> 📸 **[INSERIR AQUI: print do dashboard completo funcionando]**
 
 ---
 
@@ -181,23 +180,29 @@ Acesse: http://localhost:1880
 | Alertas de Poluição Crítica | Table | Registros com classificação "ruim" |
 | Condições Climáticas Externas | Stat | Dados em tempo real da OpenWeatherMap |
 
-> 📸 **[INSERIR AQUI: print do dashboard completo com todos os painéis]**
+> 📸 <img width="1895" height="853" alt="image" src="https://github.com/user-attachments/assets/e83410a7-6770-4592-abe0-39e9c104307c" />
+
+
 
 ---
 
 ## 📸 Screenshots do Sistema
 
 ### Node-RED — Fluxo completo
-> 📸 **[INSERIR AQUI: print do fluxo no Node-RED mostrando os dois sensores e a API]**
+> 📸 <img width="1307" height="852" alt="image" src="https://github.com/user-attachments/assets/8ea166aa-c5b4-4b6b-9e49-6e6d60d18b98" />
+
 
 ### Wokwi — Sensores simulados
-> 📸 **[INSERIR AQUI: print dos dois projetos Wokwi rodando com o Serial Monitor]**
+> 📸 <img width="1919" height="943" alt="image" src="https://github.com/user-attachments/assets/3e4a4622-42ee-419c-9e50-92060f06eb76" />
+
 
 ### InfluxDB — Dados gravados
-> 📸 **[INSERIR AQUI: print do Data Explorer mostrando os dados chegando]**
+> 📸 <img width="1462" height="924" alt="image" src="https://github.com/user-attachments/assets/4e4d7a21-b88f-433e-9a7d-b9d9bf6f9665" />
+
 
 ### Grafana — Dashboard em tempo real
-> 📸 **[INSERIR AQUI: print do dashboard completo funcionando]**
+> 📸 <img width="1893" height="824" alt="image" src="https://github.com/user-attachments/assets/6347ae2a-56b8-4f1b-8a6d-fd0e253c5fd9" />
+
 
 ---
 
