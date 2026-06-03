@@ -1,43 +1,33 @@
 [
     {
-        "id": "0a93b2251ebfa5f5",
-        "type": "influxdb out",
+        "id": "0c54fdf62171c565",
+        "type": "influxdb3-write",
         "z": "c427fd0f9fc0d18c",
-        "influxdb": "b014335f5851386b",
-        "name": "InfluxDB Clima",
-        "measurement": "clima",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "Mackenzie",
-        "bucket": "qualidade_ar",
-        "x": 840,
-        "y": 540,
-        "wires": []
+        "influxdb": "acfb4cb2bd72b5bc",
+        "name": "InfluxDB3 Sensores",
+        "measurement": "qualidade_ar",
+        "database": "qualidade_ar",
+        "x": 560,
+        "y": 400,
+        "wires": [
+            []
+        ]
     },
     {
-        "id": "b014335f5851386b",
-        "type": "influxdb",
-        "hostname": "127.0.0.1",
-        "port": 8086,
-        "protocol": "http",
-        "database": "database",
-        "name": "InfluxDB",
-        "usetls": false,
-        "tls": "",
-        "influxdbVersion": "2.0",
-        "url": "https://us-east-1-1.aws.cloud2.influxdata.com",
-        "timeout": "20",
-        "rejectUnauthorized": true
+        "id": "acfb4cb2bd72b5bc",
+        "type": "influxdb3-config",
+        "name": "InfluxDB Cloud",
+        "host": "https://us-east-1-1.aws.cloud2.influxdata.com",
+        "database": "qualidade_ar",
+        "tlsRejectUnauthorized": true,
+        "caCertPath": ""
     },
     {
-        "id": "f1cfc6032751be04",
+        "id": "4e59ae896a54d66b",
         "type": "global-config",
         "env": [],
         "modules": {
-            "node-red-contrib-influxdb": "0.7.0"
+            "node-red-contrib-influxdb3": "1.0.6"
         }
     }
 ]
