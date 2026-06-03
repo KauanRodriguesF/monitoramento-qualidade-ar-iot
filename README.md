@@ -197,7 +197,7 @@ Acesse: http://localhost:1880
 
 
 ### InfluxDB — Dados gravados
-> 📸 <img width="1462" height="924" alt="image" src="https://github.com/user-attachments/assets/4e4d7a21-b88f-433e-9a7d-b9d9bf6f9665" />
+> 📸 <img width="1864" height="943" alt="image" src="https://github.com/user-attachments/assets/774ae0dc-e9f0-4d48-be5f-2ebf1f98bf75" />
 
 
 ### Grafana — Dashboard em tempo real
