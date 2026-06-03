@@ -1,5 +1,265 @@
 [
     {
+        "id": "c427fd0f9fc0d18c",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ea847565c10afb93",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "b014335f5851386b",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": 8086,
+        "protocol": "http",
+        "database": "database",
+        "name": "InfluxDB",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "https://us-east-1-1.aws.cloud2.influxdata.com",
+        "timeout": "20",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "acfb4cb2bd72b5bc",
+        "type": "influxdb3-config",
+        "name": "InfluxDB Cloud",
+        "host": "https://us-east-1-1.aws.cloud2.influxdata.com",
+        "database": "qualidade_ar",
+        "tlsRejectUnauthorized": true,
+        "caCertPath": ""
+    },
+    {
+        "id": "9a8b48d7a0e73256",
+        "type": "mqtt in",
+        "z": "c427fd0f9fc0d18c",
+        "name": "Sensor 1",
+        "topic": "qualidade-ar/sensor1",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "ea847565c10afb93",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 340,
+        "wires": [
+            [
+                "5418ee0cbd331697",
+                "16f4e2c081de32d1"
+            ]
+        ]
+    },
+    {
+        "id": "5418ee0cbd331697",
+        "type": "function",
+        "z": "c427fd0f9fc0d18c",
+        "name": "function 1",
+        "func": "const aqiValue = msg.payload.aqi || 0;\nconst temperatura = msg.payload.temperatura || 0;\nconst umidade = msg.payload.umidade || 0;\nconst sensorId = msg.payload.sensor || \"sensor1\";\n\nlet classificacao;\nlet alerta = false;\n\nif (aqiValue <= 50) {\n    classificacao = \"boa\";\n} else if (aqiValue <= 100) {\n    classificacao = \"moderada\";\n} else {\n    classificacao = \"ruim\";\n    alerta = true;\n}\n\nmsg.payload = `qualidade_ar,sensor=${sensorId} aqi=${aqiValue},temperatura=${temperatura},umidade=${umidade},alerta=${alerta ? 1 : 0},classificacao=\"${classificacao}\"`;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 400,
+        "wires": [
+            [
+                "85a8f44ffa22d5c0",
+                "0c54fdf62171c565"
+            ]
+        ]
+    },
+    {
+        "id": "e92237693d3cb4b3",
+        "type": "inject",
+        "z": "c427fd0f9fc0d18c",
+        "name": "Carimbo de data/hora",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 620,
+        "wires": [
+            [
+                "25bfa932a67596ab"
+            ]
+        ]
+    },
+    {
+        "id": "25bfa932a67596ab",
+        "type": "http request",
+        "z": "c427fd0f9fc0d18c",
+        "name": "OpenWeatherMap API",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://api.openweathermap.org/data/2.5/weather?q=São Paulo,BR&appid=SUA_API_KEY_OPENWEATHERMAP_AQUI&units=metric&lang=pt_br",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": []
+    },
+    {
+        "id": "3ca7ebd8be3ea48e",
+        "type": "mqtt in",
+        "z": "c427fd0f9fc0d18c",
+        "name": "Sensor 2",
+        "topic": "qualidade-ar/sensor2",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "ea847565c10afb93",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 440,
+        "wires": [
+            [
+                "5418ee0cbd331697",
+                "ae30e5d85f6dbf9a"
+            ]
+        ]
+    },
+    {
+        "id": "a8547dc78b6945a3",
+        "type": "function",
+        "z": "c427fd0f9fc0d18c",
+        "name": "function 2",
+        "func": "const data = msg.payload;\n\nmsg.payload = [{\n    temp_externa: data.main.temp,\n    umidade_externa: data.main.humidity,\n    pressao: data.main.pressure,\n    vento_velocidade: data.wind.speed,\n    clima_descricao: data.weather[0].description\n}];\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 620,
+        "wires": [
+            [
+                "0a93b2251ebfa5f5"
+            ]
+        ]
+    },
+    {
+        "id": "0a93b2251ebfa5f5",
+        "type": "influxdb out",
+        "z": "c427fd0f9fc0d18c",
+        "influxdb": "b014335f5851386b",
+        "name": "InfluxDB Clima",
+        "measurement": "clima",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "Mackenzie",
+        "bucket": "qualidade_ar",
+        "x": 880,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "16f4e2c081de32d1",
+        "type": "debug",
+        "z": "c427fd0f9fc0d18c",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 220,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "ae30e5d85f6dbf9a",
+        "type": "debug",
+        "z": "c427fd0f9fc0d18c",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 220,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "85a8f44ffa22d5c0",
+        "type": "debug",
+        "z": "c427fd0f9fc0d18c",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 300,
+        "wires": []
+    },
+    {
         "id": "0c54fdf62171c565",
         "type": "influxdb3-write",
         "z": "c427fd0f9fc0d18c",
@@ -14,19 +274,11 @@
         ]
     },
     {
-        "id": "acfb4cb2bd72b5bc",
-        "type": "influxdb3-config",
-        "name": "InfluxDB Cloud",
-        "host": "https://us-east-1-1.aws.cloud2.influxdata.com",
-        "database": "qualidade_ar",
-        "tlsRejectUnauthorized": true,
-        "caCertPath": ""
-    },
-    {
-        "id": "4e59ae896a54d66b",
+        "id": "abd3ec7c58b188f1",
         "type": "global-config",
         "env": [],
         "modules": {
+            "node-red-contrib-influxdb": "0.7.0",
             "node-red-contrib-influxdb3": "1.0.6"
         }
     }
