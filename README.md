@@ -195,7 +195,7 @@ A tabela abaixo apresenta os endereços FQDN e IP de cada componente do sistema:
 
 > 📸 <img width="1895" height="853" alt="image" src="https://github.com/user-attachments/assets/e83410a7-6770-4592-abe0-39e9c104307c" />
 
-## 🖥️ Video
+## 🖥️ Video da execução do projeto
 https://youtu.be/XfQDuNJVkxo?si=6XcA7yWHcJXPqeUC
 
 
